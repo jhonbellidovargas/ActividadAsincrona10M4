@@ -1,0 +1,44 @@
+<section class="py-4 d-flex">
+  <section class="container border p-4" style="width: 40%">
+    <form class="form-group p-2">
+      <input
+        type="text"
+        placeholder="Ingresa nombre de la tarea"
+        name="tarea"
+        [(ngModel)]="tarea"
+        class="form-control"
+      />
+      <textarea
+        type="text"
+        rows="10"
+        placeholder="Ingresa descripcion"
+        name="descripcion"
+        [(ngModel)]="descripcion"
+        class="form-control my-4"
+      ></textarea>
+      <input
+        type="button"
+        value="Guardar"
+        (click)="Agregar()"
+        class="btn btn-primary"
+        [disabled]="!tarea || !descripcion"
+      />
+    </form>
+  </section>
+  <section class="container border p-4" style="width: 40%">
+    <h2>Lista de tareas</h2>
+    <section class="border rouded">
+      <ul>
+        <li *ngFor="let fila of datos; let i = index">
+          <section class="my-4">
+            <h5>{{ fila.tarea }}</h5>
+            <p>{{ fila.descripcion }}</p>
+            <button class="btn btn-danger" (click)="Eliminar(i)">
+              Eliminar ❌
+            </button>
+          </section>
+        </li>
+      </ul>
+    </section>
+  </section>
+</section>
